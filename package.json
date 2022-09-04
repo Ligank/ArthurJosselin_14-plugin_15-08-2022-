@@ -1,6 +1,6 @@
 {
   "name": "plugin-modal-ligank",
-  "version": "0.1.0",
+  "version": "0.1.9",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",

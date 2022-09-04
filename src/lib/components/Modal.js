@@ -12,26 +12,26 @@ function Modal({ buttonText, title, titleColor, modalColor, modalText, modalText
     <button onClick={() => setIsShown(true)}>{buttonText}</button>
       {isShown &&<div className="modal-background">
         {inputName1 ? <div className="modal-box" style={borderStyle} >
-        <button className="btn-close" onClick={() => setIsShown(false)} style={{ color: closeColor }}>
-          <span aria-hidden="true" className="close" style={{ color: closeColorX }}>&times;</span>
+        <button className="btn-closeModal" onClick={() => setIsShown(false)} style={{ color: closeColor }}>
+          <span aria-hidden="true" className="closeModal" style={{ color: closeColorX }}>&times;</span>
         </button>
         {title && <h1 className="title-modal" style={{ color: titleColor }}>{title}</h1>}
-        <div className="inputBox">
-          <div className="input">
+        <form className="inputBoxModal">
+          <div className="inputModal">
             <p>{inputName1}</p>
             <input type="text" id={inputName1} name={inputName1} className='inputCase'></input>
           </div>
-          <div className="input">
+          <div className="inputModal">
             <p>{inputName2}</p>
             <input type="text" id={inputName2} name={inputName2} className='inputCase'></input>
           </div>
-          <button className="inputButton" onClick={onClick}>{inputButtonText ? inputButtonText : 'Confirm'}</button>
-        </div>
+          <button className="inputButtonModal" onClick={onClick}>{inputButtonText ? inputButtonText : 'Confirm'}</button>
+        </form>
         </div> 
         : 
         <div className="modal-box" style={borderStyle}>
-        <button className="btn-close" onClick={() => setIsShown(false)} style={{ color: closeColor }}>
-          <span aria-hidden="true" className="close" style={{ color: closeColorX }}>&times;</span>
+        <button className="btn-closeModal" onClick={() => setIsShown(false)} style={{ color: closeColor }}>
+          <span aria-hidden="true" className="closeModal" style={{ color: closeColorX }}>&times;</span>
         </button>
         {title && <h1 className="title-modal" style={{ color: titleColor }}>{title}</h1>}
           <p className="text-modal" style={{ color: modalTextColor }}>{modalText}</p>

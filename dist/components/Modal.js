@@ -30,14 +30,14 @@ function Modal({
     className: "modal-box",
     style: borderStyle
   }, /*#__PURE__*/React.createElement("button", {
-    className: "btn-close",
+    className: "btn-closeModal",
     onClick: () => setIsShown(false),
     style: {
       color: closeColor
     }
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
-    className: "close",
+    className: "closeModal",
     style: {
       color: closeColorX
     }
@@ -46,37 +46,37 @@ function Modal({
     style: {
       color: titleColor
     }
-  }, title), /*#__PURE__*/React.createElement("div", {
-    className: "inputBox"
+  }, title), /*#__PURE__*/React.createElement("form", {
+    className: "inputBoxModal"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "input"
+    className: "inputModal"
   }, /*#__PURE__*/React.createElement("p", null, inputName1), /*#__PURE__*/React.createElement("input", {
     type: "text",
     id: inputName1,
     name: inputName1,
     className: "inputCase"
   })), /*#__PURE__*/React.createElement("div", {
-    className: "input"
+    className: "inputModal"
   }, /*#__PURE__*/React.createElement("p", null, inputName2), /*#__PURE__*/React.createElement("input", {
     type: "text",
     id: inputName2,
     name: inputName2,
     className: "inputCase"
   })), /*#__PURE__*/React.createElement("button", {
-    className: "inputButton",
+    className: "inputButtonModal",
     onClick: onClick
   }, inputButtonText ? inputButtonText : 'Confirm'))) : /*#__PURE__*/React.createElement("div", {
     className: "modal-box",
     style: borderStyle
   }, /*#__PURE__*/React.createElement("button", {
-    className: "btn-close",
+    className: "btn-closeModal",
     onClick: () => setIsShown(false),
     style: {
       color: closeColor
     }
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
-    className: "close",
+    className: "closeModal",
     style: {
       color: closeColorX
     }

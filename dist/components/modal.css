@@ -20,7 +20,7 @@
     max-width: 20%;
   }
   
-  .btn-close {
+  .btn-closeModal {
     position:absolute; 
     top:-12px; 
     right:-12px;
@@ -38,7 +38,7 @@
     cursor: pointer;
   }
   
-  .close {
+  .closeModal {
     color: white;
     font-size: 30px;
   }
@@ -48,12 +48,12 @@
     margin-bottom: 0;
   }
   
-  .input {
+  .inputModal {
     display: flex;
     flex-direction: column;
   }
   
-  .inputBox {
+  .inputBoxModal {
     margin: auto;
     margin-bottom: 20px;
     width: 100%;
@@ -61,7 +61,7 @@
     flex-direction: column;
   }
   
-  .inputButton {
+  .inputButtonModal {
     margin: auto;
     margin-top: 20px;
   }

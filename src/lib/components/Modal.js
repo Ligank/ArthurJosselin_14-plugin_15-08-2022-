@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types'
 import "./modal.css";
 
-function Modal({ buttonText, title, titleColor, modalColor, modalText, modalTextColor, closeColor, closeColorX, borderColor, inputName1, inputName2, inputButtonText, onClick}) {
+function Modal({ buttonText, title, titleColor, modalColor, modalText, modalTextColor, closeColor, closeColorX, borderColor, inputName1, inputName2, inputButtonText, handleClick}) {
 
   let borderStyle = {border: "1px solid" + borderColor, backgroundColor: modalColor}
   
   const [isShown, setIsShown] = useState(false);
+
 
   return (<div>
     <button onClick={() => setIsShown(true)}>{buttonText}</button>
@@ -25,7 +26,7 @@ function Modal({ buttonText, title, titleColor, modalColor, modalText, modalText
             <p>{inputName2}</p>
             <input type="text" id={inputName2} name={inputName2} className='inputCase'></input>
           </div>
-          <button className="inputButtonModal" onClick={onClick}>{inputButtonText ? inputButtonText : 'Confirm'}</button>
+          <button className="inputButtonModal" onClick={handleClick}>{inputButtonText ? inputButtonText : 'Confirm'}</button>
         </form>
         </div> 
         : 

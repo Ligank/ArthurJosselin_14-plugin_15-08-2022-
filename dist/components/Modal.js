@@ -15,7 +15,7 @@ function Modal({
   inputName1,
   inputName2,
   inputButtonText,
-  onClick
+  handleClick
 }) {
   let borderStyle = {
     border: "1px solid" + borderColor,
@@ -64,7 +64,7 @@ function Modal({
     className: "inputCase"
   })), /*#__PURE__*/React.createElement("button", {
     className: "inputButtonModal",
-    onClick: onClick
+    onClick: handleClick
   }, inputButtonText ? inputButtonText : 'Confirm'))) : /*#__PURE__*/React.createElement("div", {
     className: "modal-box",
     style: borderStyle

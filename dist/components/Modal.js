@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import "./modal.css";
 
 function Modal({
-  buttonText,
+  show,
   title,
   titleColor,
   modalColor,
@@ -15,16 +15,19 @@ function Modal({
   inputName1,
   inputName2,
   inputButtonText,
-  handleClick
+  handleClickInput
 }) {
   let borderStyle = {
     border: "1px solid" + borderColor,
     backgroundColor: modalColor
   };
   const [isShown, setIsShown] = useState(false);
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
-    onClick: () => setIsShown(true)
-  }, buttonText), isShown && /*#__PURE__*/React.createElement("div", {
+  useEffect(() => {
+    if (show === true) {
+      setIsShown(true);
+    }
+  }, [show]);
+  return /*#__PURE__*/React.createElement("div", null, isShown && /*#__PURE__*/React.createElement("div", {
     className: "modal-background"
   }, inputName1 ? /*#__PURE__*/React.createElement("div", {
     className: "modal-box",
@@ -64,7 +67,7 @@ function Modal({
     className: "inputCase"
   })), /*#__PURE__*/React.createElement("button", {
     className: "inputButtonModal",
-    onClick: handleClick
+    onClick: handleClickInput
   }, inputButtonText ? inputButtonText : 'Confirm'))) : /*#__PURE__*/React.createElement("div", {
     className: "modal-box",
     style: borderStyle
@@ -94,7 +97,7 @@ function Modal({
 }
 
 Modal.propTypes = {
-  buttonText: PropTypes.string,
+  show: PropTypes.bool.isRequired,
   title: PropTypes.string,
   titleColor: PropTypes.string,
   modalColor: PropTypes.string,

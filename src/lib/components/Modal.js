@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
 import "./modal.css";
 
-function Modal({ buttonText, title, titleColor, modalColor, modalText, modalTextColor, closeColor, closeColorX, borderColor, inputName1, inputName2, inputButtonText, handleClick}) {
+function Modal({ show, title, titleColor, modalColor, modalText, modalTextColor, closeColor, closeColorX, borderColor, inputName1, inputName2, inputButtonText, handleClickInput }) {
 
   let borderStyle = {border: "1px solid" + borderColor, backgroundColor: modalColor}
   
   const [isShown, setIsShown] = useState(false);
 
+  useEffect(()=>{
+    if (show === true) {
+      setIsShown(true)
+    }
+}, [show]) 
 
   return (<div>
-    <button onClick={() => setIsShown(true)}>{buttonText}</button>
       {isShown &&<div className="modal-background">
         {inputName1 ? <div className="modal-box" style={borderStyle} >
         <button className="btn-closeModal" onClick={() => setIsShown(false)} style={{ color: closeColor }}>
@@ -26,7 +30,7 @@ function Modal({ buttonText, title, titleColor, modalColor, modalText, modalText
             <p>{inputName2}</p>
             <input type="text" id={inputName2} name={inputName2} className='inputCase'></input>
           </div>
-          <button className="inputButtonModal" onClick={handleClick}>{inputButtonText ? inputButtonText : 'Confirm'}</button>
+          <button className="inputButtonModal" onClick={handleClickInput}>{inputButtonText ? inputButtonText : 'Confirm'}</button>
         </form>
         </div> 
         : 
@@ -42,7 +46,7 @@ function Modal({ buttonText, title, titleColor, modalColor, modalText, modalText
 }
 
 Modal.propTypes = {
-  buttonText: PropTypes.string,
+  show: PropTypes.bool.isRequired,
   title: PropTypes.string,
   titleColor: PropTypes.string,
   modalColor: PropTypes.string,

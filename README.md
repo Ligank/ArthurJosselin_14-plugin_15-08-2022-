@@ -5,7 +5,7 @@ A plugin to automate the creation of a modal that can be used as validation or f
 
 ### Parameters :
 
-##### buttonText : color of the button that opens the modal.
+##### show : always a state equal to false by default.
 ##### title: Title of the modal (like 'Login' before input).
 ##### titleColor: Color of the title.
 ##### modalColor: Color of background.
@@ -32,17 +32,27 @@ Install plugin-modal-ligank with npm
 ```bash
 import {Modal} from "plugin-modal-ligank"
 
-function handleClick() {
-  console.log("hello world")
-}
+const [isShown, setIsShown] = useState(false);
+
+  useEffect(()=>{
+    setIsShown(false)
+  }, [isShown]) 
+
+  function handleClick() {
+    //what you want
+      setIsShown(true)
+  }
 
   <div>
-    <Modal buttonText={''} modalText="" handleClick={handleClick}/>
+    <form action="#">
+        <button onClick={handleClick}>Confirm</button>
+        <Modal buttonText="" modalText="" show={isShown}/>
+    </form>
   </div>
 ```
 
 
-You can pass a function in handleClick.
+You can pass a function in handleClickInput if there are inputs.
     
 ## Authors
 

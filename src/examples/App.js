@@ -13,6 +13,10 @@ function App() {
       setIsShown(true)
   }
 
+  function close() {
+    console.log("test")
+  }
+
   return <div className="box" style={{ width: 200, margin: "15px auto" }}>
           <h1>plugin modal</h1>
           <form action="#" id="create-employee">
@@ -21,7 +25,7 @@ function App() {
                     <input type="text" id="first-name" className='inputText' />
                 </div>
                 <button onClick={handleClick}>Confirm</button>
-                <Modal buttonText={'Confirm'} modalText="Employee Created !" show={isShown}/>
+                <Modal buttonText={'Confirm'} modalText="Employee Created !" show={isShown} closeAction={close}/>
             </form>
         </div>
 }

@@ -15,7 +15,8 @@ function Modal({
   inputName1,
   inputName2,
   inputButtonText,
-  handleClickInput
+  handleClickInput,
+  closeAction
 }) {
   let borderStyle = {
     border: "1px solid" + borderColor,
@@ -27,6 +28,12 @@ function Modal({
       setIsShown(true);
     }
   }, [show]);
+
+  function close() {
+    setIsShown(false);
+    closeAction();
+  }
+
   return /*#__PURE__*/React.createElement("div", null, isShown && /*#__PURE__*/React.createElement("div", {
     className: "modal-background"
   }, inputName1 ? /*#__PURE__*/React.createElement("div", {
@@ -73,7 +80,7 @@ function Modal({
     style: borderStyle
   }, /*#__PURE__*/React.createElement("button", {
     className: "btn-closeModal",
-    onClick: () => setIsShown(false),
+    onClick: close,
     style: {
       color: closeColor
     }
@@ -109,6 +116,7 @@ Modal.propTypes = {
   inputName1: PropTypes.string,
   inputName2: PropTypes.string,
   inputButtonText: PropTypes.string,
-  onClick: PropTypes.string
+  handleClickInput: PropTypes.func,
+  closeAction: PropTypes.func
 };
 export default Modal;

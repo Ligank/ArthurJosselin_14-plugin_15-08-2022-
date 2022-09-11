@@ -18,6 +18,7 @@ A plugin to automate the creation of a modal that can be used as validation or f
 ##### inputName2: Name of second input.
 ##### inputButtonText: Text of the button of the form.
 ##### handleClick: Action to do when form is send.
+##### closeAction: Action to do when modal is closed.
 
 
 ## Installation

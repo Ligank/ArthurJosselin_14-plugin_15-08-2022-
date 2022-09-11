@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
 import "./modal.css";
 
-function Modal({ show, title, titleColor, modalColor, modalText, modalTextColor, closeColor, closeColorX, borderColor, inputName1, inputName2, inputButtonText, handleClickInput }) {
+function Modal({ show, title, titleColor, modalColor, modalText, modalTextColor, closeColor, closeColorX, borderColor, inputName1, inputName2, inputButtonText, handleClickInput, closeAction }) {
 
   let borderStyle = {border: "1px solid" + borderColor, backgroundColor: modalColor}
   
@@ -13,6 +13,12 @@ function Modal({ show, title, titleColor, modalColor, modalText, modalTextColor,
       setIsShown(true)
     }
 }, [show]) 
+
+function close() {
+  setIsShown(false)
+  closeAction()
+}
+
 
   return (<div>
       {isShown &&<div className="modal-background">
@@ -35,7 +41,7 @@ function Modal({ show, title, titleColor, modalColor, modalText, modalTextColor,
         </div> 
         : 
         <div className="modal-box" style={borderStyle}>
-        <button className="btn-closeModal" onClick={() => setIsShown(false)} style={{ color: closeColor }}>
+        <button className="btn-closeModal" onClick={close} style={{ color: closeColor }}>
           <span aria-hidden="true" className="closeModal" style={{ color: closeColorX }}>&times;</span>
         </button>
         {title && <h1 className="title-modal" style={{ color: titleColor }}>{title}</h1>}
@@ -58,7 +64,8 @@ Modal.propTypes = {
   inputName1: PropTypes.string,
   inputName2: PropTypes.string,
   inputButtonText: PropTypes.string,
-  onClick: PropTypes.string
+  handleClickInput: PropTypes.func,
+  closeAction: PropTypes.func
 }
 
 export default Modal

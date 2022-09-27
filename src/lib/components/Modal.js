@@ -19,7 +19,9 @@ function close() {
   closeAction()
 }
 
-
+/**
+ * depending on whether inputName1 is empty or not, the visual changes automatically
+ */
   return (<div>
       {isShown &&<div className="modal-background">
         {inputName1 ? <div className="modal-box" style={borderStyle} >
@@ -50,6 +52,7 @@ function close() {
       </div>}
     </div>)              
 }
+
 
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,

@@ -22,17 +22,25 @@ function Modal({
     border: "1px solid" + borderColor,
     backgroundColor: modalColor
   };
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(false); //show the modal when show is true
+
   useEffect(() => {
     if (show === true) {
       setIsShown(true);
     }
-  }, [show]);
+  }, [show]); //remove modal and if closeAction in not blank, make an action
 
   function close() {
     setIsShown(false);
-    closeAction();
+
+    if (closeAction) {
+      closeAction();
+    }
   }
+  /**
+   * depending on whether inputName1 is empty or not, the visual changes automatically
+   */
+
 
   return /*#__PURE__*/React.createElement("div", null, isShown && /*#__PURE__*/React.createElement("div", {
     className: "modal-background"
@@ -105,18 +113,32 @@ function Modal({
 
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
+  //always a state equal to false by default.
   title: PropTypes.string,
+  //Title of the modal (like 'Login' before input).
   titleColor: PropTypes.string,
+  //Color of the title.
   modalColor: PropTypes.string,
+  //Color of background.
   modalText: PropTypes.string,
+  //Text of the modal (like 'Confirmed !').
   modalTextColor: PropTypes.string,
+  //Color of text.
   closeColor: PropTypes.string,
+  //Color of the close circle.
   closeColorX: PropTypes.string,
+  //Color of the X close.
   borderColor: PropTypes.string,
+  //Color of the border of the modal.
   inputName1: PropTypes.string,
+  //Name of first input.
   inputName2: PropTypes.string,
+  //Name of second input.
   inputButtonText: PropTypes.string,
+  //Text of the button of the form.
   handleClickInput: PropTypes.func,
-  closeAction: PropTypes.func
+  //Action to do when form is send.
+  closeAction: PropTypes.func //Action to do when modal is closed.
+
 };
 export default Modal;
